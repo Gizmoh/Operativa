@@ -8,7 +8,7 @@ import math
 #3° supuesto, al tercer turno no llegan camiones con carga.
 #4° supuesto, un dia esta compuesto de tres turnos, los dias se trabajan en su totalidad.
 # solo se acaba al final del turno.
-shift_count = 6 #En esta variable se guarda la cantidad de turnos a contar (" aca va el input de los turnos")
+shift_count = 10000 #En esta variable se guarda la cantidad de turnos a contar (" aca va el input de los turnos")
 shift_selector = 0 #determina que turno se ejecutara a continuacion.
 shift_worked01 = 0 #Cantidad de turnos trabajados por maquina 1
 shift_worked02 = 0 #Cantidad de turnos trabajados por maquina 2
@@ -34,13 +34,14 @@ def CreaCarga(TruckLoad):#Creamos los camiones que llegan ese turno
 def Machine01(carga):#Turno de la maquina 1
 	global Package01
 	global shift_worked01
+	global Time_Off01
 	time = 480
 	while time > 0 and carga > 0:#Maquina opera mientras dure el turno o duren las cargas de los camiones, lo que se acabe primero
 		time = time - random.normalvariate(12,5)
 		carga = carga-1
 		Package01 = Package01 + 1
 	if time > 0: #Si el turno se termina por falta de cargas se suma el tiempo sobrante al tiempo desocupado
-		Time_Off01 = time
+		Time_Off01 = Time_Off01 + time
 		Time_On01 = 480 - time
 	shift_worked01 = shift_worked01 + 1
 	return carga
@@ -48,6 +49,7 @@ def Machine01(carga):#Turno de la maquina 1
 def Machine02(carga):#Turno de la maquina 2
 	global Package02
 	global shift_worked02
+	global Time_Off02
 	time = 480
 	while time > 0 and carga > 0:#Maquina opera mientras dure el turno o duren las cargas de los camiones, lo que se acabe primero
 		time = time - random.uniform(12,15)
@@ -73,4 +75,7 @@ for i in range(0,shift_count): # el proceso funciona hasta pasar por todos los t
 	if shift_selector == 2: #Turno de descanso, no se hace nada, no llegan camiones.
 		shift_selector = 0
 Packages = Package01 + Package02
-print ("Carga sobrante final = "+str(TruckLoad)+" cargas ; paquetes totales creados = "+str(Packages))
+print ("Carga sobrante final = "+str(TruckLoad)+" cargas ; paquetes totales creados = "+str(Packages)+".")
+print ("Tiempo desocupado promedio maquina 1 = "+str(Time_Off01/shift_worked01)+" minutos.")
+print ("Tiempo desocupado promedio maquina 2 = "+str(Time_Off02/shift_worked02)+" minutos.")
+print ("Paquetes creados maquina 2 = "+str(Package02)+".")
