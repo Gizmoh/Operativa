@@ -8,7 +8,7 @@ import math
 #3° supuesto, al tercer turno no llegan camiones con carga.
 #4° supuesto, un dia esta compuesto de tres turnos, los dias se trabajan en su totalidad.
 # solo se acaba al final del turno.
-shift_count = 10000 #En esta variable se guarda la cantidad de turnos a contar (" aca va el input de los turnos")
+shift_count = 500 #En esta variable se guarda la cantidad de turnos a contar (" aca va el input de los turnos")
 shift_selector = 0 #determina que turno se ejecutara a continuacion.
 shift_worked01 = 0 #Cantidad de turnos trabajados por maquina 1
 shift_worked02 = 0 #Cantidad de turnos trabajados por maquina 2
@@ -25,9 +25,13 @@ Time_On01 = 0 #Cantidad de tiempo que la maquina se encuentra ocupada
 Time_On02 = 0 #Cantidad de tiempo que la maquina se encuentra ocupada
 		
 def CreaCarga(TruckLoad):#Creamos los camiones que llegan ese turno
-	Trucks = random.expovariate(20) #Obtengo cantidad de camniones por minuto usando distribucion exponencial.
-	Trucks_shift = Trucks*480 #Dado que son turnos de 8 horas, se multiplica la distribucion por la cantidad de minutos en 8 horas
-	Trucks_shift = math.ceil(Trucks_shift) + TruckLoad
+	Time = 0 #Inicializamos la variable en 0
+	Trucks_shift = 0
+	while Time < 480: #agregamos mas camiones al turno hasta que se completen los 480 minutos
+		Time = Time + random.expovariate(2) #agregamos una cantidad de tiempo al azar a los minutos para simular la llegada de un camion
+		Trucks_shift = Trucks_shift + 1 #agregamos un contador al contador de camiones
+	Trucks_shift = math.ceil(Trucks_shift)
+	Trucks_shift = Trucks_shift + TruckLoad #agregamos los camiones sobrantes del turno anterior a los camiones para este turno
 	return Trucks_shift
 
 
@@ -53,7 +57,7 @@ def Machine02(carga):#Turno de la maquina 2
 	time = 480
 	while time > 0 and carga > 0:#Maquina opera mientras dure el turno o duren las cargas de los camiones, lo que se acabe primero
 		time = time - random.uniform(12,15)
-		carga = carga-1
+		carga = carga - 2
 		Package02 = Package02 + 1
 	if time > 0: #Si el turno se termina por falta de cargas se suma el tiempo sobrante al tiempo desocupado
 		Time_Off01 = time
