@@ -8,7 +8,7 @@ import math
 #3° supuesto, al tercer turno no llegan camiones con carga.
 #4° supuesto, un dia esta compuesto de tres turnos, los dias se trabajan en su totalidad.
 # solo se acaba al final del turno.
-shift_count = 500 #En esta variable se guarda la cantidad de turnos a contar (" aca va el input de los turnos")
+shift_count = 10 #En esta variable se guarda la cantidad de turnos a contar (" aca va el input de los turnos")
 shift_selector = 0 #determina que turno se ejecutara a continuacion.
 shift_worked01 = 0 #Cantidad de turnos trabajados por maquina 1
 shift_worked02 = 0 #Cantidad de turnos trabajados por maquina 2
@@ -28,7 +28,7 @@ def CreaCarga(TruckLoad):#Creamos los camiones que llegan ese turno
 	Time = 0 #Inicializamos la variable en 0
 	Trucks_shift = 0
 	while Time < 480: #agregamos mas camiones al turno hasta que se completen los 480 minutos
-		Time = Time + random.expovariate(2) #agregamos una cantidad de tiempo al azar a los minutos para simular la llegada de un camion
+		Time = Time + random.expovariate(0.05) #agregamos una cantidad de tiempo al azar a los minutos para simular la llegada de un camion
 		Trucks_shift = Trucks_shift + 1 #agregamos un contador al contador de camiones
 	Trucks_shift = math.ceil(Trucks_shift)
 	Trucks_shift = Trucks_shift + TruckLoad #agregamos los camiones sobrantes del turno anterior a los camiones para este turno
