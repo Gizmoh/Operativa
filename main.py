@@ -34,9 +34,9 @@ class MainWindow(QtGui.QMainWindow):
 		"""
 		Ventana con los integrantes del grupo
 		"""
-		message = u'Integrantes: \n- Nicolas Aravena\n- Hernan Casanova\n- Arturo Reyes\n\n'
-		message += u'Profesor responsable: \n - Miguelina Vega Rosales\n\n'
-		message += u'Simulador realizado para el ramo de Investigación Operativa II\n'
+		message = u'Simulador realizado para el ramo de Investigación Operativa II \n\
+		\nIntegrantes: \n- Nicolas Aravena\n- Hernan Casanova\n- Arturo Reyes\n\
+		\nProfesor responsable: \n - Miguelina Vega Rosales\n'
 		self.ui.about = QtGui.QMessageBox.information(self, 'Acerca de Simulador', message)
 
 
@@ -104,10 +104,16 @@ class MainWindow(QtGui.QMainWindow):
 			if self.shift_selector == 2: #Turno de descanso, no se hace nada, no llegan camiones.
 				self.shift_selector = 0
 		self.Packages = self.Package01 + self.Package02
-		print ("Carga sobrante final = "+str(self.TruckLoad)+" cargas ; paquetes totales creados = "+str(self.Packages)+".")
-		print ("Tiempo desocupado promedio maquina 1 = "+str(self.Time_Off01/self.shift_worked01)+" minutos.")
-		print ("Tiempo desocupado promedio maquina 2 = "+str(self.Time_Off02/self.shift_worked02)+" minutos.")
-		print ("Paquetes creados maquina 2 = "+str(self.Package02)+".")
+		message = u'Carga sobrante final = {0}  cargas\
+					\nPaquetes totales creados = {1}\
+					\nTiempo desocupado promedio maquina 1 = {2} minutos.\
+					\nPaquetes creados maquina 2 = {3}.\
+					'.format(
+						str(self.TruckLoad),
+						str(self.Packages),
+						str(self.Time_Off01/self.shift_worked01),
+						str(self.Time_Off02/self.shift_worked02))
+		self.ui.results.setText(message)
 
 
 def main():
