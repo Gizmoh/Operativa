@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'main_ui.ui'
 #
-# Created: Tue Dec  2 17:36:37 2014
+# Created: Tue Dec  2 18:30:37 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -45,10 +45,10 @@ class Ui_MainWindow(object):
         self.label.setEnabled(True)
         self.label.setObjectName("label")
         self.horizontalLayout.addWidget(self.label)
-        self.turns = QtGui.QSpinBox(self.gridLayoutWidget)
-        self.turns.setMaximum(16777215)
-        self.turns.setObjectName("turns")
-        self.horizontalLayout.addWidget(self.turns)
+        self.shifts = QtGui.QSpinBox(self.gridLayoutWidget)
+        self.shifts.setMaximum(99999)
+        self.shifts.setObjectName("shifts")
+        self.horizontalLayout.addWidget(self.shifts)
         self.gridLayout.addLayout(self.horizontalLayout, 2, 0, 1, 1)
         self.label_2 = QtGui.QLabel(self.gridLayoutWidget)
         self.label_2.setObjectName("label_2")

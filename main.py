@@ -91,7 +91,7 @@ class MainWindow(QtGui.QMainWindow):
 		return carga
 
 	def simulate(self):
-		shift_count = 10 #En esta variable se guarda la cantidad de turnos a contar (" aca va el input de los turnos")
+		shift_count = self.ui.shifts.value() #En esta variable se guarda la cantidad de turnos a contar (" aca va el input de los turnos")
 		for i in range(0,shift_count): # el proceso funciona hasta pasar por todos los turnos introducidos
 			if self.shift_selector == 0: #Turno de la primera maquina
 				self.shift_selector = 1

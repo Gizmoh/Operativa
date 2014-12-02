@@ -99,9 +99,9 @@
         </widget>
        </item>
        <item>
-        <widget class="QSpinBox" name="turns">
+        <widget class="QSpinBox" name="shifts">
          <property name="maximum">
-          <number>16777215</number>
+          <number>99999</number>
          </property>
         </widget>
        </item>
