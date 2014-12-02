@@ -79,6 +79,7 @@ for i in range(0,shift_count): # el proceso funciona hasta pasar por todos los t
 	if shift_selector == 2: #Turno de descanso, no se hace nada, no llegan camiones.
 		shift_selector = 0
 Packages = Package01 + Package02
+
 print ("Carga sobrante final = "+str(TruckLoad)+" cargas ; paquetes totales creados = "+str(Packages)+".")
 print ("Tiempo desocupado promedio maquina 1 = "+str(Time_Off01/shift_worked01)+" minutos.")
 print ("Tiempo desocupado promedio maquina 2 = "+str(Time_Off02/shift_worked02)+" minutos.")
