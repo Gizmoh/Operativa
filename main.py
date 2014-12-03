@@ -60,9 +60,6 @@ class MainWindow(QtGui.QMainWindow):
 
 
 	def Machine01(self, carga):#Turno de la maquina 1
-		global Package01
-		global shift_worked01
-		global Time_Off01
 		time = 480
 		while time > 0 and carga > 0:#Maquina opera mientras dure el turno o duren las cargas de los camiones, lo que se acabe primero
 			time = time - random.normalvariate(12,5)
@@ -76,9 +73,6 @@ class MainWindow(QtGui.QMainWindow):
 
 
 	def Machine02(self, carga):#Turno de la maquina 2
-		global Package02
-		global shift_worked02
-		global Time_Off02
 		time = 480
 		while time > 0 and carga > 0:#Maquina opera mientras dure el turno o duren las cargas de los camiones, lo que se acabe primero
 			time = time - random.uniform(12,15)
@@ -106,13 +100,22 @@ class MainWindow(QtGui.QMainWindow):
 		self.Packages = self.Package01 + self.Package02
 		message = u'Carga sobrante final = {0}  cargas\
 					\nPaquetes totales creados = {1}\
-					\nTiempo desocupado promedio maquina 1 = {2} minutos.\
+					\nPaquetes creados maquina 2 = {2}.\
 					\nPaquetes creados maquina 2 = {3}.\
+					\nTiempo desocupado promedio maquina 1 = {4} minutos.\
+					\nTiempo desocupado promedio maquina 2 = {5} minutos.\
+					\nPorcentaje tiempo desocupado promedio maquina 1 = {6}%\
+					\nPorcentaje tiempo desocupado promedio maquina 2 = {7}%\
 					'.format(
-						str(self.TruckLoad),
-						str(self.Packages),
-						str(self.Time_Off01/self.shift_worked01),
-						str(self.Time_Off02/self.shift_worked02))
+						self.TruckLoad, #Carga sobrante
+						self.Packages, #total paquetes
+						self.Package01, #paquetes mq 1
+						self.Package02, #paquetes mq 2
+						str(self.Time_Off01/self.shift_worked01), #tiempo mq 1
+						str(self.Time_Off02/self.shift_worked02), #tiempo mq 2
+						str(self.Time_Off01*100/self.Time_On01), #porcentaje mq1
+						str(self.Time_Off02*100/self.Time_On02), #porcentaje mq2
+						)
 		self.ui.results.setText(message)
 
 
