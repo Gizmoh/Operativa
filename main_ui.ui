@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>364</width>
-    <height>386</height>
+    <width>400</width>
+    <height>450</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>364</width>
-    <height>386</height>
+    <width>400</width>
+    <height>450</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>364</width>
-    <height>386</height>
+    <width>400</width>
+    <height>450</height>
    </size>
   </property>
   <property name="palette">
@@ -74,8 +74,8 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>341</width>
-      <height>321</height>
+      <width>381</width>
+      <height>391</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -100,6 +100,9 @@
        </item>
        <item>
         <widget class="QSpinBox" name="shifts">
+         <property name="minimum">
+          <number>1</number>
+         </property>
          <property name="maximum">
           <number>99999</number>
          </property>
@@ -125,7 +128,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>364</width>
+     <width>400</width>
      <height>25</height>
     </rect>
    </property>

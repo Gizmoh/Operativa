@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'main_ui.ui'
 #
-# Created: Tue Dec  2 18:30:37 2014
+# Created: Thu Dec  4 11:34:18 2014
 #      by: pyside-uic 0.2.15 running on PySide 1.2.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -12,9 +12,9 @@ from PySide import QtCore, QtGui
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(364, 386)
-        MainWindow.setMinimumSize(QtCore.QSize(364, 386))
-        MainWindow.setMaximumSize(QtCore.QSize(364, 386))
+        MainWindow.resize(400, 450)
+        MainWindow.setMinimumSize(QtCore.QSize(400, 450))
+        MainWindow.setMaximumSize(QtCore.QSize(400, 450))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(0, 174, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -31,7 +31,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayoutWidget = QtGui.QWidget(self.centralwidget)
-        self.gridLayoutWidget.setGeometry(QtCore.QRect(10, 10, 341, 321))
+        self.gridLayoutWidget.setGeometry(QtCore.QRect(10, 10, 381, 391))
         self.gridLayoutWidget.setObjectName("gridLayoutWidget")
         self.gridLayout = QtGui.QGridLayout(self.gridLayoutWidget)
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
@@ -46,6 +46,7 @@ class Ui_MainWindow(object):
         self.label.setObjectName("label")
         self.horizontalLayout.addWidget(self.label)
         self.shifts = QtGui.QSpinBox(self.gridLayoutWidget)
+        self.shifts.setMinimum(1)
         self.shifts.setMaximum(99999)
         self.shifts.setObjectName("shifts")
         self.horizontalLayout.addWidget(self.shifts)
@@ -58,7 +59,7 @@ class Ui_MainWindow(object):
         self.gridLayout.addWidget(self.results, 4, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 364, 25))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 400, 25))
         self.menubar.setObjectName("menubar")
         self.help = QtGui.QMenu(self.menubar)
         self.help.setObjectName("help")
